@@ -59,3 +59,5 @@ if __name__ == "__main__":
 
     print(house_rent.manager.search(area=800))
     print(apartment_rent.manager.search(region=reg1))
+    print(house_rent.manager.search(area__max=100))
+
