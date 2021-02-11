@@ -8,9 +8,8 @@ class Manager:
 
     def search(self, **kwargs):
         results = []
-        answers = []
         for obj in self._claas.object_list:
-
+            answers = []
             for key, value in kwargs.items():
                 if key.endswith('__min'):
                     key = key[:-5]
@@ -31,8 +30,10 @@ class Manager:
                     else:
                         result = bool(getattr(obj, key) == value)
                         answers.append(result)
+                else:
+                    answers.append(False)
 
-            if all(answers) :
+            if all(answers):
                 results.append(obj)
         return results
 

@@ -64,4 +64,4 @@ if __name__ == "__main__":
 
     # print(house_rent.manager.search(area=800))
     # print(ApartmentRent.manager.search(region=reg1))
-    print(HouseRent.manager.search(area__max=110000, area__min=600))
+    print(HouseRent.manager.search(area__max=800, area__min=600))
