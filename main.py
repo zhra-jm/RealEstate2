@@ -52,12 +52,16 @@ if __name__ == "__main__":
                                    built_year=1380, region=reg1, address='some address', initial_price=100,
                                    monthly_price=3.5, discountable=False, convertable=False)
 
-    house_rent = HouseRent(has_yard=True, floors_count=2, user=User.object_list[-1],
-                           area=800, rooms_count=5, built_year=1378, region=reg1,
-                           address='some address..', initial_price=150,
-                           monthly_price=5.5, discountable=False, convertable=False)
+    house_rent1 = HouseRent(has_yard=True, floors_count=2, user=User.object_list[-1],
+                            area=800, rooms_count=5, built_year=1378, region=reg1,
+                            address='some address..', initial_price=150,
+                            monthly_price=5.5, discountable=False, convertable=False)
 
-    print(house_rent.manager.search(area=800))
-    print(apartment_rent.manager.search(region=reg1))
-    print(house_rent.manager.search(area__max=100))
+    house_rent2 = HouseRent(has_yard=True, floors_count=2, user=User.object_list[-1],
+                            area=1000, rooms_count=5, built_year=1378, region=reg1,
+                            address='some address..', initial_price=150,
+                            monthly_price=5.5, discountable=False, convertable=False)
 
+    # print(house_rent.manager.search(area=800))
+    # print(ApartmentRent.manager.search(region=reg1))
+    print(HouseRent.manager.search(area__max=110000, area__min=600))

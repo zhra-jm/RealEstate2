@@ -8,27 +8,32 @@ class Manager:
 
     def search(self, **kwargs):
         results = []
-        for key, value in kwargs.items():
-            if key.endswith('__min'):
-                key = key[:-5]
-                compare_key = 'min'
-            elif key.endswith('__max'):
-                key = key[:-5]
-                compare_key = 'max'
-            else:
-                compare_key = 'equal'
+        answers = []
+        for obj in self._claas.object_list:
 
-            for obj in self._claas.object_list:
+            for key, value in kwargs.items():
+                if key.endswith('__min'):
+                    key = key[:-5]
+                    compare_key = 'min'
+                elif key.endswith('__max'):
+                    key = key[:-5]
+                    compare_key = 'max'
+                else:
+                    compare_key = 'equal'
+
                 if hasattr(obj, key):
                     if compare_key == 'min':
                         result = bool(getattr(obj, key) >= value)
+                        answers.append(result)
                     elif compare_key == 'max':
                         result = bool(getattr(obj, key) <= value)
+                        answers.append(result)
                     else:
                         result = bool(getattr(obj, key) == value)
+                        answers.append(result)
 
-                    if result:
-                        results.append(obj)
+            if all(answers) :
+                results.append(obj)
         return results
 
     def get(self, **kwargs):
