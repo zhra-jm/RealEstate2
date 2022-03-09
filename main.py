@@ -27,14 +27,14 @@ class Handler:
         print('hello world')
         for key in self.SWITCHES:
             print(f'press {key} for {self.SWITCHES[key]}')
-            user_input = input('Enter your choice: ')
-            switch = self.SWITCHES.get(user_input, None)
-            if switch is None:
-                print('invalid input')
-                self.run()
-            choice = getattr(self, switch, None)
-            choice()
+        user_input = input('Enter your choice: ')
+        switch = self.SWITCHES.get(user_input, None)
+        if switch is None:
+            print('invalid input')
             self.run()
+        choice = getattr(self, switch, None)
+        choice()
+        self.run()
 
 
 if __name__ == "__main__":
