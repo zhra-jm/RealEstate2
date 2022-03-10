@@ -5,7 +5,7 @@ A simulation of a real estate.
 
 ## Build With
 
-*python
+* python
 
 ## How To Use
 
@@ -27,4 +27,4 @@ A simulation of a real estate.
  
  you can choose what you wanna do in terminal.
  
- *Wish you have enjoyed that!Good Luck:D
+ * Wish you have enjoyed that!Good Luck:D
